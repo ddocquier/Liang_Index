@@ -15,7 +15,7 @@ Multiple variables (Liang, 2021)
 
 Computations for each member (time series = years) or for each range of years (time series = members)
 
-Last updated: 13/07/2021
+Last updated: 17/01/2022
 
 @author: David Docquier
 """
@@ -30,8 +30,8 @@ sys.path.append('/home/sm_davdo/Projects/scripts/ROADMAP/')
 from function_liang_nvar import compute_liang_nvar
 
 # Working directories
-dir_input = '/nobackup/rossby24/proj/rossby/joint_exp/oseaice/ROADMAP/SMHI-LENS/'
-dir_fig = '/nobackup/rossby24/proj/rossby/joint_exp/oseaice/ROADMAP/SMHI-LENS/'
+dir_input = '/nobackup/rossby24/proj/rossby/joint_exp/oseaice/SMHI-LENS/'
+dir_fig = '/nobackup/rossby24/proj/rossby/joint_exp/oseaice/SMHI-LENS/'
 
 # Parameters
 save_fig = True

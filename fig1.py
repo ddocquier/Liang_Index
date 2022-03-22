@@ -5,7 +5,7 @@ Fig. 1: Time series of original variables - SSP5-8.5
 Fig. S1: Time series of original variables - SSP1-1.9
 Fig. S2: Time series of detrended variables - SSP5-8.5
 
-Last updated: 14/07/2021
+Last updated: 17/01/2022
 
 @author: David Docquier
 """
@@ -25,7 +25,7 @@ last_year = 2080 # last year for detrending March SIA
 last_year2 = 2040 # last year for detrending September SIA
 n_members = 50 # number of members
 arctic = True # T2m and SST north of 70N (Arctic mean); False: global mean
-scenario = 'ssp119' # ssp585; ssp119
+scenario = 'ssp585' # ssp585; ssp119
 
 # Load monthly Arctic sea-ice area from SMHI-LENS (1970-2014)
 filename = dir_input + 'SIA_SMHI-LENS_historical.npy'
@@ -238,18 +238,18 @@ ax[1,1].set_title('d',loc='left',fontsize=30,fontweight='bold')
 
 # Ocean and atmospheric HT at 70N
 for m in np.arange(n_members):
-    ax[2,0].plot(np.arange(nyears)+1,oht_70N[m,:],'r--',linewidth=0.5)
     ax[2,0].plot(np.arange(nyears)+1,aht_70N[m,:],'b--',linewidth=0.5)
-ax[2,0].plot(np.arange(nyears)+1,np.nanmean(oht_70N,axis=0),'-',color='darkred',linewidth=4,label='OHT$_{70N}$')
+    ax[2,0].plot(np.arange(nyears)+1,oht_70N[m,:],'r--',linewidth=0.5)
 ax[2,0].plot(np.arange(nyears)+1,np.nanmean(aht_70N,axis=0),'-',color='darkblue',linewidth=4,label='AHT$_{70N}$')
+ax[2,0].plot(np.arange(nyears)+1,np.nanmean(oht_70N,axis=0),'-',color='darkred',linewidth=4,label='OHT$_{70N}$')
 ax[2,0].set_ylabel('Heat transport at 70$^{\circ}$N (PW)',fontsize=26)
 ax[2,0].set_xlabel('Year',fontsize=26)
 ax[2,0].set_xticks(xrange)
 ax[2,0].set_xticklabels(name_xticks)
 ax[2,0].tick_params(labelsize=20)
-ax[2,0].legend(loc='upper left',fontsize=24,shadow=True,frameon=False)
+ax[2,0].legend(loc='center left',fontsize=24,shadow=True,frameon=False)
 ax[2,0].grid(linestyle='--')
-ax[2,0].axis([-1, 133, 0, 2.5])
+ax[2,0].axis([-1, 133, 0, 1.8])
 ax[2,0].set_title('e',loc='left',fontsize=30,fontweight='bold')
 
 # Arctic Oscillation index
@@ -398,10 +398,10 @@ ax[1,1].set_title('d',loc='left',fontsize=30,fontweight='bold')
 
 # Ocean and atmospheric HT at 70N
 for m in np.arange(n_members):
-    ax[2,0].plot(np.arange(nyears2)+1,oht_70N2[m,:],'r--',linewidth=0.5)
     ax[2,0].plot(np.arange(nyears2)+1,aht_70N2[m,:],'b--',linewidth=0.5)
-ax[2,0].plot(np.arange(nyears2)+1,np.nanmean(oht_70N2,axis=0),'r-',linewidth=4,label='OHT$_{70N}$')
+    ax[2,0].plot(np.arange(nyears2)+1,oht_70N2[m,:],'r--',linewidth=0.5)
 ax[2,0].plot(np.arange(nyears2)+1,np.nanmean(aht_70N2,axis=0),'-',linewidth=4,label='AHT$_{70N}$')
+ax[2,0].plot(np.arange(nyears2)+1,np.nanmean(oht_70N2,axis=0),'r-',linewidth=4,label='OHT$_{70N}$')
 ax[2,0].set_ylabel('Det. heat transport at 70$^{\circ}$N (PW)',fontsize=26)
 ax[2,0].set_xlabel('Year',fontsize=26)
 ax[2,0].set_xticks(xrange)
@@ -409,7 +409,7 @@ ax[2,0].set_xticklabels(name_xticks)
 ax[2,0].tick_params(labelsize=20)
 ax[2,0].legend(loc='upper left',fontsize=24,shadow=True,frameon=False)
 ax[2,0].grid(linestyle='--')
-ax[2,0].axis([-1, 113, -0.8, 0.8])
+ax[2,0].axis([-1, 113, -0.2, 0.2])
 ax[2,0].set_title('e',loc='left',fontsize=30,fontweight='bold')
 
 # Arctic Oscillation index

@@ -11,7 +11,7 @@ Multiple variables (Liang, 2021)
 
 Computations for each member (time series = years)
 
-Last updated: 13/07/2021
+Last updated: 12/01/2022
 
 @author: David Docquier
 """
@@ -29,8 +29,8 @@ sys.path.append('/home/sm_davdo/Projects/scripts/ROADMAP/')
 from function_liang_nvar import compute_liang_nvar
 
 # Working directories
-dir_input = '/nobackup/rossby24/proj/rossby/joint_exp/oseaice/ROADMAP/SMHI-LENS/'
-dir_fig = '/nobackup/rossby24/proj/rossby/joint_exp/oseaice/ROADMAP/SMHI-LENS/'
+dir_input = '/nobackup/rossby24/proj/rossby/joint_exp/oseaice/SMHI-LENS/'
+dir_fig = '/nobackup/rossby24/proj/rossby/joint_exp/oseaice/SMHI-LENS/'
 
 # Parameters
 save_fig = True
@@ -311,7 +311,7 @@ cmap_R = plt.cm.bwr._resample(16)
 sns.set(font_scale=1.8)
 
 # Matrix of tau (ensemble mean) - March
-tau_annotations = np.abs(tau_ensmean_mar).astype(int)
+tau_annotations = np.round(np.abs(tau_ensmean_mar),2)
 tau_plot = sns.heatmap(np.abs(tau_ensmean_mar),annot=tau_annotations,fmt='',annot_kws={'color':'k','fontsize':18},cmap=cmap_tau,
     cbar_kws={'label':r'$\|\tau\|$ ($\%$)','orientation':'horizontal','pad':0.05},vmin=0,vmax=70,
     xticklabels=label_names_mar,yticklabels=label_names_mar,linewidths=0.1,linecolor='gray',ax=ax[0,0])
@@ -349,7 +349,7 @@ R_plot.xaxis.set_ticks_position('top')
 R_plot.set_yticklabels(R_plot.get_ymajorticklabels(),fontsize=20)
 
 # Matrix of tau (ensemble mean) - September
-tau_annotations = np.abs(tau_ensmean_sep).astype(int)
+tau_annotations = np.round(np.abs(tau_ensmean_sep),2)
 tau_plot = sns.heatmap(np.abs(tau_ensmean_sep),annot=tau_annotations,fmt='',annot_kws={'color':'k','fontsize':18},cmap=cmap_tau,
     cbar_kws={'label':r'$\|\tau\|$ ($\%$)','orientation':'horizontal','pad':0.05},vmin=0,vmax=70,
     xticklabels=label_names_sep,yticklabels=label_names_sep,linewidths=0.1,linecolor='gray',ax=ax[1,0])
